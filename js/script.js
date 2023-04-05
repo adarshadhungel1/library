@@ -6,14 +6,23 @@ class Book {
         this.remark = remark;
     }
     addToTable(){
-        this.tableData = document.querySelectorAll('tr');
-        this.tableData.innerHTML += `<tr>
+        this.tableData = document.querySelector('table');
+        let row = this.tableData.insertRow(this.tableData.rows.length);
+        let cell0 = row.insertCell(0);
+        let cell1 = row.insertCell(1);
+        let cell2 = row.insertCell(2);
+        let cell3 = row.insertCell(3);
+        cell0.innerHTML = this.name;
+        cell1.innerHTML = this.author;
+        cell2.innerHTML = this.status;
+        cell3.innerHTML = this.remark;
+        /*this.tableData.innerHTML += `<tr>
                             <td> ${this.name} </td>
                             <td> ${this.author} </td>
                             <td> ${this.status} </td>
                             <td> ${this.remark} </td>
                            </tr>`;
-        console.log(this.remark);
+        console.log(this.remark);*/
     }
 }
 
@@ -41,6 +50,8 @@ function newData(){
 
     new Book(bookname, bookauthor, readstatus, bookremarks).addToTable();
 }
+
+let HP = new Book('Harry Potter', 'Unknown', 'yes', 'decent').addToTable();
 
 addNewBook = document.querySelector(".expand");
 addNewBook.addEventListener('click',reveal);
