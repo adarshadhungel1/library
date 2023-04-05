@@ -1,8 +1,3 @@
-table,tr,th,td{
-    border: 2px red solid;
-    text-align: center;
-}
-
 .heading{
     display: flex;
     flex-direction: column;
@@ -21,4 +16,14 @@ table,tr,th,td{
 .books{
     display: grid;
     grid-column: 1/6;
+}
+
+.bookinfo{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-items: center;
+}
+
+.abook{
+    border: 3px red solid;
 }
