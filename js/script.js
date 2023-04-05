@@ -16,6 +16,19 @@ class Book {
         cell1.innerHTML = this.author;
         cell2.innerHTML = this.status;
         cell3.innerHTML = this.remark;
+
+        clearcontent();
+    }
+}
+
+function clearcontent(){
+    content = document.getElementById("author");
+    if (content.value){
+        content.value = '';
+        content = document.getElementById("name");
+        content.value = '';
+        content = document.getElementById("remarks");
+        content.value = '';
     }
 }
 
