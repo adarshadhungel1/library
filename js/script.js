@@ -34,11 +34,19 @@ function reveal(){
             <div class="author"> <label for="author">Author: </label> <input type="text" name="author" id="author"> </div>
             <div class="yn"> <label for="status"> Have you read it yet?: </label> <input type="radio" name="status" value="yes"> Yes <input type="radio" name="status" value="no" checked> No </div>
             <div class="remarks"><label for="remarks"> Remarks: </label><input type="text" name="remarks" id="remarks"></div>
-            <button class="addbook">Add</button>
+            <button class="addbook">Add</button> <button class="hide">Hide</button>
             </div>`;
     
     addBook = document.querySelector(".addbook");
     addBook.addEventListener('click',newData);
+
+    hidebtn = document.querySelector(".hide");
+    hidebtn.addEventListener('click', hideRevealed);
+
+    function hideRevealed(){
+        document.querySelector(".tail").innerHTML = '';
+    }
+    
     return;
 }
 
