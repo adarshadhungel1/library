@@ -8,10 +8,10 @@ class Book {
     abookinfo(){
         this.info = document.createElement('div');
         this.info.className= 'abook';
-        this.info.innerHTML = `<div class="name">${this.name}</div>
-        <div class="author">${this.author}</div>
-        <div class="status">${this.status}</div>
-        <div class="remarks">${this.remark}</div>
+        this.info.innerHTML = `<div class="name">Title: ${this.name}</div>
+        <div class="author">Author: ${this.author}</div>
+        <div class="status">Read: ${this.status}</div>
+        <div class="remarks">Comments: ${this.remark}</div>
         </div>`;
         document.querySelector(".bookinfo").appendChild(this.info);
         clearcontent();
