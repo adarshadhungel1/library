@@ -6,12 +6,14 @@ class Book {
         this.remark = remark;
     }
     abookinfo(){
-        document.querySelector(".bookinfo").append(`<div class="abook">
-        <div class="name">${this.name}</div>
+        this.info = document.createElement('div');
+        this.info.className= 'abook';
+        this.info.innerHTML = `<div class="name">${this.name}</div>
         <div class="author">${this.author}</div>
         <div class="status">${this.status}</div>
         <div class="remarks">${this.remark}</div>
-        </div>`);
+        </div>`;
+        document.querySelector(".bookinfo").appendChild(this.info);
         clearcontent();
     }
 }
@@ -37,6 +39,7 @@ function newData(){
 }
 
 let HP = new Book('Harry Potter', 'Unknown', 'yes', 'decent').abookinfo();
+let XP = new Book('Dune', 'Not Random Guy', 'No', 'Marvelous').abookinfo();
 
 addBook = document.querySelector(".addbook");
 addBook.addEventListener('click',newData);
