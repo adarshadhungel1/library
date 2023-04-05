@@ -1,0 +1,23 @@
+table,tr,th,td{
+    border: 2px red solid;
+}
+
+.heading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.bookdata{
+    display: grid;
+    grid-template-columns: 184.89px 184.89px 184.89px 184.89px 60px;
+    grid-template-rows: 40px auto;
+    justify-content: start;
+    row-gap: 40px;
+    justify-content: center;
+}
+
+.books{
+    display: grid;
+    grid-column: 1/6;
+}
