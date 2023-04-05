@@ -38,7 +38,7 @@ function newData(){
     new Book(bookname, bookauthor, readstatus, bookremarks).abookinfo();
 }
 
-let HP = new Book('Harry Potter', 'Unknown', 'yes', 'decent').abookinfo();
+let HP = new Book('Harry Potter', 'Unknown', 'Yes', 'decent').abookinfo();
 let XP = new Book('Dune', 'Not Random Guy', 'No', 'Marvelous').abookinfo();
 
 addBook = document.querySelector(".addbook");
