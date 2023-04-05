@@ -5,18 +5,13 @@ class Book {
         this.status = status;
         this.remark = remark;
     }
-    addToTable(){
-        this.tableData = document.querySelector('table');
-        let row = this.tableData.insertRow(this.tableData.rows.length);
-        let cell0 = row.insertCell(0);
-        let cell1 = row.insertCell(1);
-        let cell2 = row.insertCell(2);
-        let cell3 = row.insertCell(3);
-        cell0.innerHTML = this.name;
-        cell1.innerHTML = this.author;
-        cell2.innerHTML = this.status;
-        cell3.innerHTML = this.remark;
-
+    abookinfo(){
+        document.querySelector(".bookinfo").append(`<div class="abook">
+        <div class="name">${this.name}</div>
+        <div class="author">${this.author}</div>
+        <div class="status">${this.status}</div>
+        <div class="remarks">${this.remark}</div>
+        </div>`);
         clearcontent();
     }
 }
@@ -38,10 +33,10 @@ function newData(){
     readstatus= document.querySelector('input[name="status"]:checked').value;
     bookremarks = document.querySelector("#remarks").value;
 
-    new Book(bookname, bookauthor, readstatus, bookremarks).addToTable();
+    new Book(bookname, bookauthor, readstatus, bookremarks).abookinfo();
 }
 
-let HP = new Book('Harry Potter', 'Unknown', 'yes', 'decent').addToTable();
+let HP = new Book('Harry Potter', 'Unknown', 'yes', 'decent').abookinfo();
 
 addBook = document.querySelector(".addbook");
 addBook.addEventListener('click',newData);
