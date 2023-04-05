@@ -34,7 +34,20 @@ function newData(){
     bookauthor = document.querySelector("#author").value;
     readstatus= document.querySelector('input[name="status"]:checked').value;
     bookremarks = document.querySelector("#remarks").value;
-
+    
+    if (bookname === ''){
+        alert("Bookname can't be empty");
+        return;
+    }
+    else{
+        if (bookauthor === ''){
+            bookauthor = 'Unknown';
+        }
+        if (bookremarks === ''){
+            bookremarks = 'Not Available';
+        }
+    }
+    
     new Book(bookname, bookauthor, readstatus, bookremarks).abookinfo();
 }
 
