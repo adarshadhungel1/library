@@ -1,3 +1,4 @@
+let totalBooks = 0;
 class Book {
     constructor(name, author, status, remark) {
         this.name = name;
@@ -6,14 +7,20 @@ class Book {
         this.remark = remark;
     }
     abookinfo(){
-        this.info = document.createElement('div');
-        this.info.className= 'abook';
+        totalBooks +=1 ;
+        this.info = document.createElement(`div`);
+        this.info.className= `abook`;
+        this.info.id = `${totalBooks.toString()}`;
         this.info.innerHTML = `<div class="info> <div class="boook"><div class="name">Title: ${this.name}</div>
         <div class="author">Author: ${this.author}</div>
         <div class="status">Read: ${this.status}</div>
         <div class="remarks">Comments: ${this.remark}</div>
-        </div> <div class="buttony"><button class="buttony">Delete</button> <button class="buttony">Change Read</button></div>`;
+        </div> <div class="buttony"><button class="delete" id = "${totalBooks.toString()}">Delete</button> <button class="change" id ="${totalBooks.toString()}">Change Read</button></div>`;
         document.querySelector(".bookinfo").appendChild(this.info);
+
+        document.querySelectorAll('.delete').forEach(btn => {
+            btn.addEventListener('click', remove);    
+        });
         clearcontent();
     }
 }
@@ -51,8 +58,18 @@ function newData(){
     new Book(bookname, bookauthor, readstatus, bookremarks).abookinfo();
 }
 
+function remove(){
+    this.parentElement.parentElement.remove();
+}
+
 let HP = new Book('Harry Potter', 'Unknown', 'Yes', 'decent').abookinfo();
 let XP = new Book('Dune', 'Not Random Guy', 'No', 'Marvelous').abookinfo();
 
 addBook = document.querySelector(".addbook");
 addBook.addEventListener('click',newData);
+
+delbtn = document.querySelectorAll('.delete');
+
+delbtn.forEach(btn => {
+    btn.addEventListener('click', remove);    
+});
