@@ -21,6 +21,9 @@ class Book {
         document.querySelectorAll('.delete').forEach(btn => {
             btn.addEventListener('click', remove);    
         });
+        document.querySelectorAll('.change').forEach(btn => {
+            btn.addEventListener('click', change);    
+        });
         clearcontent();
     }
 }
@@ -62,6 +65,17 @@ function remove(){
     this.parentElement.parentElement.remove();
 }
 
+function change(){
+    elements = (this.parentElement.parentElement).firstChild.childNodes;
+    toChange = elements[4];
+    if (toChange.innerHTML === 'Read: Yes'){
+        toChange.innerHTML = "Read: No";
+    }
+    else{
+        toChange.innerHTML = "Read: Yes";
+    }
+}
+
 let HP = new Book('Harry Potter', 'Unknown', 'Yes', 'decent').abookinfo();
 let XP = new Book('Dune', 'Not Random Guy', 'No', 'Marvelous').abookinfo();
 
@@ -69,7 +83,11 @@ addBook = document.querySelector(".addbook");
 addBook.addEventListener('click',newData);
 
 delbtn = document.querySelectorAll('.delete');
-
 delbtn.forEach(btn => {
     btn.addEventListener('click', remove);    
+});
+
+changebtn = document.querySelectorAll('.change');
+changebtn.forEach(btn => {
+    btn.addEventListener('click', change);    
 });
